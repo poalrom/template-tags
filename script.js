@@ -19,6 +19,10 @@ function renderItem(text) {
 		deleteItem(newElement);
 	})
 
+	newElement.querySelector('.duplicate').addEventListener('click', () => {
+		renderItem(text);
+	})
+
 	list.insertAdjacentElement('afterbegin', newElement);
 }
 
