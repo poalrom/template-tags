@@ -10,3 +10,19 @@ const list = document.querySelector(".list");
 const form = document.querySelector('.form');
 const formButton = document.querySelector(".form__submit");
 const formInput = document.querySelector(".form__input");
+
+function renderItem(text) {
+	const newElement = itemTemplate.querySelector('.list__item').cloneNode(true);
+	newElement.querySelector('.item__text').innerText = text;
+	list.insertAdjacentElement('afterbegin', newElement);
+}
+
+function createItem(e) {
+	e.preventDefault();
+	renderItem(formInput.value);
+	formInput.value = ''
+}
+
+form.addEventListener('submit', createItem)
+
+items.forEach(renderItem);
