@@ -14,7 +14,16 @@ const formInput = document.querySelector(".form__input");
 function renderItem(text) {
 	const newElement = itemTemplate.querySelector('.list__item').cloneNode(true);
 	newElement.querySelector('.item__text').innerText = text;
+
+	newElement.querySelector('.delete').addEventListener('click', () => {
+		deleteItem(newElement);
+	})
+
 	list.insertAdjacentElement('afterbegin', newElement);
+}
+
+function deleteItem(item) {
+	item.remove();
 }
 
 function createItem(e) {
